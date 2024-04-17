@@ -40,9 +40,18 @@ def selection_sort(numbers_list, direction=True):  # direction = "True" (vzestup
     return numbers_list
 
 
+def bubble_sort(numbers_list):
+    for i in range(len(numbers_list) - 1):
+        for j in range(len(numbers_list) - 1):
+            if numbers_list[j] > numbers_list[j+1]:
+                numbers_list[j], numbers_list[j+1] = numbers_list[j+1], numbers_list[j]
+    return numbers_list
+
+
 def main():
     numbers = read_data("numbers.csv")
     print(selection_sort(numbers["series_1"]))
+    print(bubble_sort(numbers["series_1"]))
 
 
 if __name__ == '__main__':
