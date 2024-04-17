@@ -2,6 +2,7 @@ import os
 import csv
 
 
+# noinspection PyTypeChecker
 def read_data(file_name):
     """
     Reads csv file and returns numeric data.
@@ -24,8 +25,17 @@ def read_data(file_name):
     return data
 
 
+def selection_sort(numbers_list):
+    for i in range(1, len(numbers_list)):
+        for j in range(len(numbers_list) - 1):
+            if numbers_list[j] > numbers_list[i]:
+                numbers_list[j], numbers_list[i] = numbers_list[i], numbers_list[j]
+    return numbers_list
+
+
 def main():
     numbers = read_data("numbers.csv")
+    print(selection_sort(numbers["series_1"]))
 
 
 if __name__ == '__main__':
