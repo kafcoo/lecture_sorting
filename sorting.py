@@ -25,11 +25,18 @@ def read_data(file_name):
     return data
 
 
-def selection_sort(numbers_list):
-    for i in range(1, len(numbers_list)):
-        for j in range(len(numbers_list) - 1):
-            if numbers_list[j] > numbers_list[i]:
-                numbers_list[j], numbers_list[i] = numbers_list[i], numbers_list[j]
+def selection_sort(numbers_list, direction=True):  # direction = "True" (vzestupně), False (sestupně)
+    if direction:
+        for i in range(1, len(numbers_list)):
+            for j in range(len(numbers_list) - 1):
+                if numbers_list[j] > numbers_list[i]:
+                    numbers_list[j], numbers_list[i] = numbers_list[i], numbers_list[j]
+    else:
+        for i in range(1, len(numbers_list)):
+            for j in range(len(numbers_list) - 1):
+                if numbers_list[j] < numbers_list[i]:
+                    numbers_list[j], numbers_list[i] = numbers_list[i], numbers_list[j]
+
     return numbers_list
 
 
