@@ -59,16 +59,29 @@ def selection_sort(numbers_list, direction="ascending"):  # direction = "True" (
 
 def bubble_sort(numbers_list):
     for i in range(len(numbers_list) - 1):
-        for j in range(len(numbers_list) - 1):
+        for j in range(len(numbers_list) - 1 - i):
             if numbers_list[j] > numbers_list[j+1]:
                 numbers_list[j], numbers_list[j+1] = numbers_list[j+1], numbers_list[j]
     return numbers_list
 
 
+def insertion_sort(numbers_list):
+    for i in range(1, len(numbers_list)):
+        key = numbers_list[i]
+        j = i - 1
+        while j >= 0 and key < numbers_list[j]:
+            numbers_list[j + 1] = numbers_list[j]
+            j -= 1
+        numbers_list[j + 1] = key
+
+    return numbers_list
+
+
 def main():
     numbers = read_data("numbers.csv")
-    print(selection_sort(numbers["series_1"]))
+    print(selection_sort(numbers["series_3"]))
     print(bubble_sort(numbers["series_1"]))
+    print(insertion_sort(numbers["series_2"]))
 
 
 if __name__ == '__main__':
